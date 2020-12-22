@@ -1,0 +1,49 @@
+{
+  "name": "donaciones-covid",
+  "version": "1.0.0",
+  "description": "Donaciones en tiempos de Covid es un sitio web para registrar tus donaciones a quienes lo necesitan.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "rimraf ./dist && parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1998Jennifer/DonacionesCovid.git"
+  },
+  "keywords": [
+    "vanilla",
+    "optativa",
+    "html",
+    "css",
+    "parcel",
+    "babel"
+  ],
+  "author": "Jennifer Intriago <jennifergabriela52@gmail.com>",
+  "contributors": [
+    {
+      "name": "Jesús Moreira",
+      "email": "jesusromc8@gmail.com",
+      "url": "https://github.com/Jesucristhorr"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1998Jennifer/DonacionesCovid/issues"
+  },
+  "homepage": "https://github.com/1998Jennifer/DonacionesCovid#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

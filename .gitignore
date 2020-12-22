@@ -1,0 +1,6 @@
+# Builds de desarrollo
+.cache
+dist
+
+# Node
+node_modules
