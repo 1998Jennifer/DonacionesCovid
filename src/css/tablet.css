@@ -1,0 +1,28 @@
+.navbar:hover {
+  width: 16rem;
+}
+
+.navbar:hover .link-text {
+  display: block;
+}
+
+.nav-link:hover * {
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background-color: var(--primary-color);
+}
+
+.main-section .backgroundImg {
+  width: 800px;
+  height: 550px;
+  margin: 0 auto;
+  background-image: url('https://ik.imagekit.io/hpmztn0eqra/yes_2CcTGosEi.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* :::::::::::::::::::::: */

@@ -21,7 +21,9 @@
     },
     "rules": {
         "no-loops/no-loops": "error",
-        "prettier/prettier": "error",
+        "prettier/prettier": ["error", {
+            "endOfLine": "auto"
+        }],
         "no-var": "error"
     }
 }
