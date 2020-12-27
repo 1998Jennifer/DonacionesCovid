@@ -17,12 +17,12 @@ html {
   margin: 0%;
   padding: 0;
 }
-
+/* 
 body {
-  /* background: linear-gradient(230.47deg, rgba(127, 40, 213, 0.3071) 30.68%, rgba(9, 132, 227, 0.37) 57.28%, rgba(196, 196, 196, 0) 127.21%); */
-  /* background: rgb(191,86,245); */
-  /* background: linear-gradient(135deg, rgba(191,86,245,1) 0%, rgba(154,89,255,1) 30%, rgba(86,152,245,0.9780287114845938) 97%); */
-}
+  background: linear-gradient(230.47deg, rgba(127, 40, 213, 0.3071) 30.68%, rgba(9, 132, 227, 0.37) 57.28%, rgba(196, 196, 196, 0) 127.21%);
+  background: rgb(191,86,245);
+  background: linear-gradient(135deg, rgba(191,86,245,1) 0%, rgba(154,89,255,1) 30%, rgba(86,152,245,0.9780287114845938) 97%);
+} */
 
 .navbar {
   width: 6rem;
