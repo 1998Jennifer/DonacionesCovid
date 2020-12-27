@@ -9,6 +9,7 @@ import { render } from 'lit-html';
 
 // Vistas
 import Home from './views/pages/Home';
+import About from './views/pages/About';
 
 // Obtener elemento raíz
 const app = document.querySelector('#app');
@@ -26,6 +27,11 @@ router.add('', () => {
   render(Home.getHomeTemplate(), app);
 });
 
+// About
+router.add('/about', () => {
+  render(About.getAboutTemplate(), app);
+});
+
 /**
  * @description Función que se ejecutará cada vez que la ruta cambie.
  */
@@ -39,7 +45,9 @@ const routeHandler = () => {
 const routerInit = () => {
   router.addUriListener(routeHandler);
 
-  console.log(router.check());
+  const currentURI = router.check()._current;
+
+  router.navigateTo(`/${currentURI}`);
 };
 
 export default routerInit;

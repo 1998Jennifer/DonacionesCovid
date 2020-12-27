@@ -58,11 +58,16 @@ window.addEventListener('load', () => {
 
   // Elementos de menú
   const navHome = document.querySelector('#navHome');
+  const navAcerca = document.querySelector('#navAcerca');
 
   // Eventos de click
-  if (navHome !== null) {
+  if (navHome !== null && navAcerca !== null) {
     navHome.addEventListener('click', () => {
       router.navigateTo('/');
+    });
+
+    navAcerca.addEventListener('click', () => {
+      router.navigateTo('/about');
     });
   }
 });
