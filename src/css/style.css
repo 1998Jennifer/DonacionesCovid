@@ -26,7 +26,7 @@ body {
 
 .navbar {
   width: 6rem;
-  height: 100vh;
+  height: 127vh;
   background-color: #f8f4f4;
   transition: 200ms ease;
 }
@@ -131,6 +131,7 @@ body {
 /* MAIN */
 
 .main-section-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -148,6 +149,24 @@ body {
   margin-bottom: 40px;
 }
 
+.main-section-container .boton-donar {
+  position: absolute;
+  left: calc(50% - 110px);
+  top: calc(100% - 25px);
+  display: block;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(89, 73, 30, 0.16);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
 .main-section-container h1 {
   margin-bottom: 1rem;
   font-size: 2.3rem;
@@ -162,26 +181,6 @@ body {
 .main-section-container p {
   margin-top: 1rem;
   text-align: center;
-}
-
-.main-section-container .button-donate {
-  position: absolute;
-  left: calc(50% - 70px);
-  top: 175px;
-  display: block;
-  width: 170px;
-  height: 36px;
-  background-color: #ffffff;
-  box-shadow: 7px 4px 8px rgba(89, 73, 30, 0.16);
-  border: none;
-  border-radius: 5px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--primary-color);
-  font-family: 'Poppins', sans-serif;
-  outline: none;
-  cursor: pointer;
 }
 
 .main-section .backgroundImg {
