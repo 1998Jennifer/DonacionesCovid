@@ -26,3 +26,22 @@
 }
 
 /* :::::::::::::::::::::: */
+.main-section-container h1 {
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+  color: var(--primary-color);
+}
+.main-section-container h3 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.main-section-container p {
+  margin-top: 1.3rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.main-section-card p {
+  text-align: left;
+}

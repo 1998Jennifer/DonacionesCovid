@@ -50,7 +50,7 @@ body {
 } */
 
 .navFull {
-  width: 100%;
+  width: 50%;
 }
 
 .nav-link span {
@@ -131,7 +131,9 @@ body {
 /* MAIN */
 
 .main-section-container {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
   padding: 2rem;
@@ -148,6 +150,28 @@ body {
   margin-bottom: 40px;
 }
 
+.main-section-container .boton-donar {
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(100% - 25px);
+  display: block;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(89, 73, 30, 0.16);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.boton-donar i {
+  margin-left: 5px;
+}
+
 .main-section-container h1 {
   margin-bottom: 1rem;
   font-size: 2.3rem;
@@ -162,26 +186,6 @@ body {
 .main-section-container p {
   margin-top: 1rem;
   text-align: center;
-}
-
-.main-section-container .button-donate {
-  position: absolute;
-  left: calc(50% - 70px);
-  top: 175px;
-  display: block;
-  width: 170px;
-  height: 36px;
-  background-color: #ffffff;
-  box-shadow: 7px 4px 8px rgba(89, 73, 30, 0.16);
-  border: none;
-  border-radius: 5px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--primary-color);
-  font-family: 'Poppins', sans-serif;
-  outline: none;
-  cursor: pointer;
 }
 
 .main-section .backgroundImg {
