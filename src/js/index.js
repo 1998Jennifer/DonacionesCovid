@@ -1,4 +1,7 @@
 // @flow
+
+import routerInit, { router } from './router';
+
 const media = window.matchMedia('(max-width: 930px)');
 const hamburguer = document.getElementById('navHamburguer');
 
@@ -6,6 +9,9 @@ if (hamburguer !== null) {
   hamburguer.addEventListener('click', openNav);
 }
 
+/**
+ * @description Función que se ejecuta al hacer clic en el menú hamburguesa.
+ */
 function openNav() {
   if (media.matches) {
     const navbar = document.getElementById('navbarLink');
@@ -28,6 +34,9 @@ function openNav() {
   }
 }
 
+/**
+ * @description Función que se ejecuta cada vez que el navegador cambie de tamaño.
+ */
 function onResizeCheck() {
   if (!media.matches) {
     const navbar = document.getElementById('navbarLink');
@@ -42,3 +51,18 @@ function onResizeCheck() {
   }
 }
 media.addListener(onResizeCheck);
+
+// Al cargar la página, inicializar el router y los eventos de menú
+window.addEventListener('load', () => {
+  routerInit();
+
+  // Elementos de menú
+  const navHome = document.querySelector('#navHome');
+
+  // Eventos de click
+  if (navHome !== null) {
+    navHome.addEventListener('click', () => {
+      router.navigateTo('/');
+    });
+  }
+});
