@@ -124,49 +124,47 @@
 }
 
 @media screen and (min-width: 930px) {
-  @media screen and (min-width: 480px) {
-    .main-input-container {
-      margin-bottom: 20px;
-      width: 500px;
-      border-radius: 7px;
-      border: 1px solid #dfe1e5;
-      background-color: #f3f3f3;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .main-input-container {
+    margin-bottom: 20px;
+    width: 500px;
+    border-radius: 7px;
+    border: 1px solid #dfe1e5;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .main-input-container input {
-      width: 500px;
-      height: 38px;
-      border: none;
-      outline: none;
-      background-color: #f3f3f3;
-      font-family: 'Poppins', sans-serif;
-    }
+  .main-input-container input {
+    width: 500px;
+    height: 38px;
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+  }
 
-    .label-pass {
-      margin-top: 15px;
-    }
+  .label-pass {
+    margin-top: 15px;
+  }
 
-    .user {
-      margin-bottom: 0px;
-    }
+  .user {
+    margin-bottom: 0px;
+  }
 
-    .line div {
-      border-bottom: 1px solid #9d9d9d;
-      width: 180px;
-    }
+  .line div {
+    border-bottom: 1px solid #9d9d9d;
+    width: 180px;
+  }
 
-    .form-login span {
-      font-size: 1rem;
-      color: #575757;
-      font-weight: 500;
-      font-size: 1.3rem;
-    }
+  .form-login span {
+    font-size: 1rem;
+    color: #575757;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
 
-    .line p {
-      font-size: 1.3rem;
-    }
+  .line p {
+    font-size: 1.3rem;
   }
 }
