@@ -39,20 +39,15 @@ router.add('/about', () => {
 });
 
 /**
- * @description Función que se ejecutará cada vez que la ruta cambie.
- */
-const routeHandler = () => {
-  console.log(router.check());
-};
-
-/**
  * @description Función que inicializa el objeto de router, añadiendo el handler.
  */
 const routerInit = () => {
-  router.addUriListener(routeHandler);
+  router.addUriListener();
 
+  // Obtiene la ruta actual
   const currentURI = router.check()._current;
 
+  // Navega hacia la ruta actual
   router.navigateTo(`/${currentURI}`);
 };
 
