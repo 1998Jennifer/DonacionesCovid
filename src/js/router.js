@@ -9,6 +9,7 @@ import { render } from 'lit-html';
 
 // Vistas
 import Home from './views/pages/Home';
+import Login from './views/pages/Login';
 import About from './views/pages/About';
 
 // Obtener elemento raíz
@@ -25,6 +26,11 @@ export const router = new Router({
 // Home
 router.add('', () => {
   render(Home.getHomeTemplate(), app);
+});
+
+// Login
+router.add('/login', () => {
+  render(Login.getLogInTemplate(), app);
 });
 
 // About
