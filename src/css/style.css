@@ -17,16 +17,16 @@ html {
   margin: 0%;
   padding: 0;
 }
-
+/* 
 body {
-  /* background: linear-gradient(230.47deg, rgba(127, 40, 213, 0.3071) 30.68%, rgba(9, 132, 227, 0.37) 57.28%, rgba(196, 196, 196, 0) 127.21%); */
-  /* background: rgb(191,86,245); */
-  /* background: linear-gradient(135deg, rgba(191,86,245,1) 0%, rgba(154,89,255,1) 30%, rgba(86,152,245,0.9780287114845938) 97%); */
-}
+  background: linear-gradient(230.47deg, rgba(127, 40, 213, 0.3071) 30.68%, rgba(9, 132, 227, 0.37) 57.28%, rgba(196, 196, 196, 0) 127.21%);
+  background: rgb(191,86,245);
+  background: linear-gradient(135deg, rgba(191,86,245,1) 0%, rgba(154,89,255,1) 30%, rgba(86,152,245,0.9780287114845938) 97%);
+} */
 
 .navbar {
   width: 6rem;
-  height: 100vh;
+  height: 127vh;
   background-color: #f8f4f4;
   transition: 200ms ease;
 }
@@ -50,7 +50,9 @@ body {
 } */
 
 .navFull {
-  width: 50%;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
 }
 
 .nav-link span {
@@ -152,7 +154,7 @@ body {
 
 .main-section-container .boton-donar {
   position: absolute;
-  left: calc(50% - 100px);
+  left: calc(50% - 110px);
   top: calc(100% - 25px);
   display: block;
   padding: 10px;
@@ -166,10 +168,6 @@ body {
   font-weight: bold;
   text-decoration: none;
   color: var(--primary-color);
-}
-
-.boton-donar i {
-  margin-left: 5px;
 }
 
 .main-section-container h1 {
