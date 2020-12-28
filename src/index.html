@@ -1,115 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Donaciones en tiempos de Covid es un sitio web para registrar tus donaciones a quienes lo necesitan. Examen para la materia Optativa I.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/tablet.css" media="(min-width: 930px)">
-    <script src="https://kit.fontawesome.com/9dd40539f6.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      name="description"
+      content="Donaciones en tiempos de Covid es un sitio web para registrar tus donaciones a quienes lo necesitan. Examen para la materia Optativa I."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/tablet.css" media="(min-width: 930px)" />
+    <script
+      src="https://kit.fontawesome.com/9dd40539f6.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Donaciones Covid</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="container">
+      <nav class="navbar" id="navbarLink">
+        <!-- Hamburguesa -->
+        <ul class="navbar-nav">
+          <li class="logo">
+            <a href="#" class="nav-link" id="navHamburguer">
+              <i class="fas fa-bars"></i>
+              <span class="link-text"></span>
+            </a>
+          </li>
+          <!-- ITEMS -->
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link" id="navHome">
+              <i class="fas fa-home"></i>
+              <span class="link-text">Home</span>
+            </a>
+          </li>
 
-        <nav class="navbar" id="navbarLink">
-            <!-- Hamburguesa -->
-            <ul class="navbar-nav">
-                <li class="logo">
-                    <a href="#" class="nav-link" id="navHamburguer">
-                        <i class="fas fa-bars"></i>
-                        <span class="link-text"></span>
-                    </a>
-                </li>
-                <!-- ITEMS -->
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        <span class="link-text">Home</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span class="link-text">Log in</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-box"></i>
-                        <span class="link-text">Donar</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-search"></i>
-                        <span class="link-text">Buscar</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-user-shield"></i>
-                        <span class="link-text">Admin</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-info-circle"></i>
-                        <span class="link-text">Acerca de</span>
-                    </a>
-                </li>
-    
-                <li class="nav-item-menu">
-                    <a href="#" class="nav-link">
-                        <i class="fab fa-microblog"></i>
-                        <span class="link-text">Uwu</span>
-                    </a>
-                </li>
-    
-            </ul>
-    
-        </nav>
-    
-        <main>
-    
-            <section class="main-section">
-                <div class="main-section-container">
-                    <h1>Donaciones Covid</h1>
-                    <h3>Con tu donación nos ayudas a actuar inmediatamente en esta emergencia y seguir trabajando en su prevención.</h3>
-                    <p>Súmate a la respuesta ante el 
-                        Coronavirus</p>
-                    <a href="" class="boton-donar">Quiero Donar <span></span></a>
-                </div>
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link" id="navLogin">
+              <i class="fas fa-sign-in-alt"></i>
+              <span class="link-text">Log in</span>
+            </a>
+          </li>
 
-                <div class="backgroundImg"></div>
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link">
+              <i class="fas fa-box"></i>
+              <span class="link-text">Donar</span>
+            </a>
+          </li>
 
-                <div class="main-section-container">
-                    <div class="main-section-card">
-                        <div class="section-title-heart">
-                            <i class="far fa-heart"></i>
-                            <h2>Donar ahora</h2>
-                        </div>
-                        <p>El mundo entero se enfrenta a un reto sin precedentes por la creciente pandemia de COVID-19, que afecta a comunidades y economías por doquier. La sociedad se ha movilizado para combatir la pandemia promoviendo la unión de gobiernos,  organizaciones de diferentes industrias y sectores.</p>
-                    </div>
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link">
+              <i class="fas fa-search"></i>
+              <span class="link-text">Buscar</span>
+            </a>
+          </li>
 
-                </div>
-            </section>
-    
-        </main>
-        
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link">
+              <i class="fas fa-user-shield"></i>
+              <span class="link-text">Admin</span>
+            </a>
+          </li>
+
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link" id="navAcerca">
+              <i class="fas fa-info-circle"></i>
+              <span class="link-text">Acerca de</span>
+            </a>
+          </li>
+
+          <li class="nav-item-menu">
+            <a href="#" class="nav-link">
+              <i class="fab fa-microblog"></i>
+              <span class="link-text">Uwu</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="app"></div>
     </div>
 
-
     <script src="./js/index.js"></script>
-
-</body>
+  </body>
 </html>
