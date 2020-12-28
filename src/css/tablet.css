@@ -45,3 +45,12 @@
 .main-section-card p {
   text-align: left;
 }
+
+.main-section-card {
+  text-align: justify;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 15px;
+  width: 800px;
+  height: 170px;
+}
