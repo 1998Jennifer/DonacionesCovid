@@ -1,6 +1,7 @@
 // @flow
 /**
  * @file Página de inicio.
+ * @author Jennifer Intriago <jennifergabriela52@gmail.com>
  *
  */
 
