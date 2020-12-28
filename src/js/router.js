@@ -12,6 +12,7 @@ import Home from './views/pages/Home';
 import Login from './views/pages/Login';
 import About from './views/pages/About';
 import Donate from './views/pages/Donate';
+import Search from './views/pages/Search';
 
 // Obtener elemento raíz
 const app = document.querySelector('#app');
@@ -42,6 +43,11 @@ router.add('/donate', () => {
 // About
 router.add('/about', () => {
   render(About.getAboutTemplate(), app);
+});
+
+// Search
+router.add('/search', () => {
+  render(Search.getSearchTemplate(), app);
 });
 
 /**

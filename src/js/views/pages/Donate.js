@@ -78,6 +78,15 @@ const Donate = {
               <span>Máximo 120 caracteres</span>
             </label>
 
+            <label for="monto">
+              <span class="title-input">Monto de la donación</span>
+              <div class="main-donate">
+                <i class="fas fa-dollar-sign"></i>
+                <input type="number" id="usuario" placeholder="Ej. 10" />
+              </div>
+              <span>Solo números</span>
+            </label>
+
             <input
               type="submit"
               value="Enviar donación"
