@@ -60,9 +60,15 @@ window.addEventListener('load', () => {
   const navHome = document.querySelector('#navHome');
   const navLogIn = document.querySelector('#navLogin');
   const navAcerca = document.querySelector('#navAcerca');
+  const navDonar = document.querySelector('#navDonar');
 
   // Eventos de click
-  if (navHome !== null && navAcerca !== null && navLogIn !== null) {
+  if (
+    navHome !== null &&
+    navAcerca !== null &&
+    navLogIn !== null &&
+    navDonar !== null
+  ) {
     navHome.addEventListener('click', () => {
       router.navigateTo('/');
     });
@@ -73,6 +79,10 @@ window.addEventListener('load', () => {
 
     navAcerca.addEventListener('click', () => {
       router.navigateTo('/about');
+    });
+
+    navDonar.addEventListener('click', () => {
+      router.navigateTo('/donate');
     });
   }
 });

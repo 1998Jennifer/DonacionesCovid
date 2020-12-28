@@ -11,6 +11,7 @@ import { render } from 'lit-html';
 import Home from './views/pages/Home';
 import Login from './views/pages/Login';
 import About from './views/pages/About';
+import Donate from './views/pages/Donate';
 
 // Obtener elemento raíz
 const app = document.querySelector('#app');
@@ -31,6 +32,11 @@ router.add('', () => {
 // Login
 router.add('/login', () => {
   render(Login.getLogInTemplate(), app);
+});
+
+// Donate
+router.add('/donate', () => {
+  render(Donate.getDonateTemplate(), app);
 });
 
 // About
