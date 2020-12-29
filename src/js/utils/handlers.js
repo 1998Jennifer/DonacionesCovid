@@ -70,6 +70,48 @@ export function handleMenuClick(e: MouseEvent, item: Element) {
 }
 
 /**
+ * @description Función que a partir de una ruta, coloca la clase
+ * activa al item del menú correspondiente.
+ * @param {string} route Ruta actual.
+ */
+export function activateMenuFromRoute(route: string) {
+  // Obtener todos los items del menú
+  const navItems = document.querySelectorAll('.nav-link');
+
+  // Buscar a partir de la ruta el item correspondiente
+  let itemSelected = '';
+  switch (route) {
+    case '':
+      itemSelected = 'navHome';
+      break;
+    case 'login':
+      itemSelected = 'navLogin';
+      break;
+    case 'donate':
+      itemSelected = 'navDonar';
+      break;
+    case 'about':
+      itemSelected = 'navAcerca';
+      break;
+    case 'search':
+      itemSelected = 'navSearch';
+      break;
+    case 'admin':
+      itemSelected = 'navAdmin';
+      break;
+    default:
+      break;
+  }
+
+  // Filtrar los items y agregar la clase
+  navItems.forEach((item: Element) => {
+    if (item !== null && item.id === itemSelected) {
+      item.classList.add('nav-link-activated');
+    }
+  });
+}
+
+/**
  * @description Función que se ejecuta al hacer clic en el menú hamburguesa,
  * para abrir enteramente el menú.
  */
