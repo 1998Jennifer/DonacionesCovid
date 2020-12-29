@@ -35,7 +35,7 @@ const Home = {
               emergencia y seguir trabajando en su prevención.
             </h3>
             <p>Súmate a la respuesta ante el Coronavirus</p>
-            <a href="" class="boton-donar"
+            <a href="/donate" class="boton-donar"
               >Quiero Donar <i class="fas fa-chevron-down"></i
             ></a>
           </div>

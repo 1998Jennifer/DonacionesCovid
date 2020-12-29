@@ -72,7 +72,9 @@ h1 {
   /* border: 1px solid red; */
   margin-bottom: 20px;
 }
-
+.form-donate span {
+  font-size: 1.2rem;
+}
 .main-donate {
   /* margin-bottom: 20px; */
   width: 290px;
