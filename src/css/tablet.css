@@ -6,6 +6,15 @@
   display: block;
 }
 
+.nav-link * {
+  color: #ffffff;
+}
+
+.nav-link-activated {
+  filter: grayscale(0%) opacity(1);
+  background-color: var(--primary-color);
+}
+
 .nav-link:hover * {
   color: #ffffff;
 }
