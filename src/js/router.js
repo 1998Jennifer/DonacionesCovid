@@ -5,7 +5,6 @@
  */
 
 import Router from 'vanilla-router';
-import { render } from 'lit-html';
 
 // Vistas
 import Home from './views/pages/Home';
@@ -13,9 +12,6 @@ import Login from './views/pages/Login';
 import About from './views/pages/About';
 import Donate from './views/pages/Donate';
 import Search from './views/pages/Search';
-
-// Obtener elemento raíz
-const app = document.querySelector('#app');
 
 // Objeto de Router
 export const router = new Router({
@@ -27,27 +23,27 @@ export const router = new Router({
 
 // Home
 router.add('', () => {
-  render(Home.getHomeTemplate(), app);
+  Home.update();
 });
 
 // Login
 router.add('/login', () => {
-  render(Login.getLogInTemplate(), app);
+  Login.update();
 });
 
 // Donate
 router.add('/donate', () => {
-  render(Donate.getDonateTemplate(), app);
+  Donate.update();
 });
 
 // About
 router.add('/about', () => {
-  render(About.getAboutTemplate(), app);
+  About.update();
 });
 
 // Search
 router.add('/search', () => {
-  render(Search.getSearchTemplate(), app);
+  Search.update();
 });
 
 /**

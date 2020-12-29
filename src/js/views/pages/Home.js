@@ -5,14 +5,26 @@
  */
 
 // Autocompletado y sintaxis de HTML para los template literals
-import { html } from 'lit-html';
+import { html, render, TemplateResult } from 'lit-html';
+import { app } from '../..';
 
 const Home = {
   /**
-   * @description Función que retorna el template HTML para la página de inicio.
-   * @returns {string} Template de la página de inicio.
+   * @description Datos de la página de inicio.
    */
-  getHomeTemplate: (): string => {
+  data: {},
+
+  /**
+   * @description Métodos disponibles para la página de inicio,
+   * y que cambiarán datos dentro del template.
+   */
+  methods: {},
+
+  /**
+   * @description Función que retorna el template HTML para la página de inicio.
+   * @returns {TemplateResult} Template de la página de inicio.
+   */
+  template: (): TemplateResult => {
     const view = html`
       <main>
         <section class="main-section">
@@ -49,6 +61,13 @@ const Home = {
       </main>
     `;
     return view;
+  },
+
+  /**
+   * @description Función que actualiza el template, se utiliza cuando cambian los datos.
+   */
+  update: () => {
+    render(Home.template(), app);
   },
 };
 

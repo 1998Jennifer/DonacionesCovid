@@ -5,17 +5,29 @@
  */
 
 // Autocompletado y sintaxis de HTML para los template literals
-import { html } from 'lit-html';
+import { html, render, TemplateResult } from 'lit-html';
+import { app } from '../..';
 import '../../../css/login.css';
 
 const LogIn = {
   /**
-   * @description Función que retorna el template HTML para la página de login.
-   * @returns {string} Template de la página de login.
+   * @description Datos de la página de login.
    */
-  getLogInTemplate: (): string => {
+  data: {},
+
+  /**
+   * @description Métodos disponibles para la página de login,
+   * y que cambiarán datos dentro del template.
+   */
+  methods: {},
+
+  /**
+   * @description Función que retorna el template HTML para la página de login.
+   * @returns {TemplateResult} Template de la página de login.
+   */
+  template: (): TemplateResult => {
     const view = html`
-      <main class="main-form">
+            <main class="main-form">
         <div class="form-container">
           <h1>¡Bienvenido!</h1>
           <form class="form-login">
@@ -97,6 +109,13 @@ const LogIn = {
       </main>
     `;
     return view;
+  },
+
+  /**
+   * @description Función que actualiza el template, se utiliza cuando cambian los datos.
+   */
+  update: () => {
+    render(LogIn.template(), app);
   },
 };
 

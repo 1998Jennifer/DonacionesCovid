@@ -2,6 +2,9 @@
 
 import routerInit, { router } from './router';
 
+// Obtener elemento raíz, y exportarlo para su uso en toda la app
+export const app = document.querySelector('#app');
+
 const media = window.matchMedia('(max-width: 930px)');
 const hamburguer = document.getElementById('navHamburguer');
 

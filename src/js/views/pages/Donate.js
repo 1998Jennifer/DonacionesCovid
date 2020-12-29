@@ -1,18 +1,30 @@
 // @flow
 /**
- * @file Página de inicio.
+ * @file Página de donación.
  *
  */
 
-import { html } from 'lit-html';
+import { html, render, TemplateResult } from 'lit-html';
+import { app } from '../..';
 import '../../../css/donar.css';
 
 const Donate = {
   /**
-   * @description Función que retorna el template HTML para la página de inicio.
-   * @returns {string} Template de la página de inicio.
+   * @description Datos de la página de donación.
    */
-  getDonateTemplate: (): string => {
+  data: {},
+
+  /**
+   * @description Métodos disponibles para la página de donación,
+   * y que cambiarán datos dentro del template.
+   */
+  methods: {},
+
+  /**
+   * @description Función que retorna el template HTML para la página de donación.
+   * @returns {TemplateResult} Template de la página de donación.
+   */
+  template: (): TemplateResult => {
     const view = html`
       <h1>¿Qué deseas donar?</h1>
       <div class="prueba">
@@ -97,6 +109,13 @@ const Donate = {
       </div>
     `;
     return view;
+  },
+
+  /**
+   * @description Función que actualiza el template, se utiliza cuando cambian los datos.
+   */
+  update: () => {
+    render(Donate.template(), app);
   },
 };
 
