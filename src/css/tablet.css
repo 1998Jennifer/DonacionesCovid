@@ -6,7 +6,11 @@
   display: block;
 }
 
-.nav-link * {
+.nav-link-activated i {
+  color: #ffffff;
+}
+
+.nav-link-activated span {
   color: #ffffff;
 }
 

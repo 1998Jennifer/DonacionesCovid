@@ -131,6 +131,19 @@ body {
   flex-wrap: wrap;
 }
 
+.nav-link-activated i {
+  color: #ffffff;
+}
+
+.nav-link-activated span {
+  color: #ffffff;
+}
+
+.nav-link-activated {
+  filter: grayscale(0%) opacity(1);
+  background-color: var(--primary-color);
+}
+
 /* MAIN */
 
 .main-section-container {

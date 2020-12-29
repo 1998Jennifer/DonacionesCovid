@@ -13,6 +13,7 @@ import About from './views/pages/About';
 import Donate from './views/pages/Donate';
 import Search from './views/pages/Search';
 import Admin from './views/pages/Admin';
+import { activateMenuFromRoute } from './utils/handlers';
 
 // Objeto de Router
 export const router = new Router({
@@ -63,6 +64,9 @@ const routerInit = () => {
 
   // Navega hacia la ruta actual
   router.navigateTo(`/${currentURI}`);
+
+  // Coloca la clase activa al item del menú de la ruta correspondiente
+  activateMenuFromRoute(currentURI);
 };
 
 export default routerInit;
