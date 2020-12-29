@@ -74,23 +74,28 @@ window.addEventListener('load', () => {
     navDonar !== null &&
     navSearch !== null
   ) {
-    navHome.addEventListener('click', () => {
+    navHome.addEventListener('click', (e: MouseEvent) => {
+      e.preventDefault();
       router.navigateTo('/');
     });
 
-    navLogIn.addEventListener('click', () => {
+    navLogIn.addEventListener('click', (e: MouseEvent) => {
+      e.preventDefault();
       router.navigateTo('/login');
     });
 
-    navAcerca.addEventListener('click', () => {
+    navAcerca.addEventListener('click', (e: MouseEvent) => {
+      e.preventDefault();
       router.navigateTo('/about');
     });
 
-    navDonar.addEventListener('click', () => {
+    navDonar.addEventListener('click', (e: MouseEvent) => {
+      e.preventDefault();
       router.navigateTo('/donate');
     });
 
-    navSearch.addEventListener('click', () => {
+    navSearch.addEventListener('click', (e: MouseEvent) => {
+      e.preventDefault();
       router.navigateTo('/search');
     });
   }
