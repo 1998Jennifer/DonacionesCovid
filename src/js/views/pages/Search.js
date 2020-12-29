@@ -54,7 +54,7 @@ const Search = {
           <label for="fechaDesde">
             <span class="title-input">Desde</span>
             <div class="main-donate">
-              <i class="fas fa-user" style="color: #F3F3F3;"></i>
+              <i class="fas fa-calendar"></i>
               <input type="date" class="input-calendar" />
             </div>
           </label>
@@ -62,7 +62,7 @@ const Search = {
           <label for="fechaHasta">
             <span class="title-input">Hasta</span>
             <div class="main-donate">
-              <i class="fas fa-user" style="color: #F3F3F3;"></i>
+              <i class="fas fa-calendar"></i>
               <input type="date" class="input-calendar" />
             </div>
           </label>
