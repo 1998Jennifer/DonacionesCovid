@@ -11,6 +11,7 @@ import {
   handleResize,
   media,
 } from './utils/handlers';
+import debounce from 'lodash.debounce';
 
 // Obtener elemento raíz, y exportarlo para su uso en toda la app
 export const app = document.querySelector('#app');
@@ -21,11 +22,12 @@ const hamburguer = document.querySelector('#navHamburguer');
 // Se comprueba que no sea nulo, y al evento de clic se
 // le añade la función para abrir el menú
 if (hamburguer !== null) {
-  hamburguer.addEventListener('click', handleOpenNav);
+  hamburguer.addEventListener('click', debounce(handleOpenNav, 100));
 }
 
-// Añadir evento de cambio de tamaño de pantalla
-media.addListener(handleResize);
+// Añadir evento de cambio de tamaño de pantalla,
+// con un pequeño tiempo de espera para evitar pérdida de rendimiento
+media.addListener(debounce(handleResize, 400));
 
 // Al cargar la página, inicializar el router y los eventos de menú
 window.addEventListener('load', () => {
