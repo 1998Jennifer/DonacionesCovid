@@ -40,7 +40,13 @@ const Search = {
             <span class="title-input">Cédula del donador</span>
             <div class="main-donate">
               <i class="fas fa-id-card"></i>
-              <input type="number" id="usuario" placeholder="Escriba aquí" />
+              <input
+                type="number"
+                id="usuario"
+                placeholder="Escriba aquí"
+                step="1"
+                min="0"
+              />
             </div>
           </label>
           <label for="beneficiario">
