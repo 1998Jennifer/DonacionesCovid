@@ -27,7 +27,7 @@ const LogIn = {
    */
   template: (): TemplateResult => {
     const view = html`
-            <main class="main-form">
+      <main class="main-form">
         <div class="form-container">
           <h1>¡Bienvenido!</h1>
           <form class="form-login">
