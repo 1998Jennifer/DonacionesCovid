@@ -7,6 +7,7 @@
 // Autocompletado y sintaxis de HTML para los template literals
 import { html, render, TemplateResult } from 'lit-html';
 import { app } from '../..';
+import { router } from '../../router';
 
 const Home = {
   /**
@@ -18,7 +19,12 @@ const Home = {
    * @description Métodos disponibles para la página de inicio,
    * y que cambiarán datos dentro del template.
    */
-  methods: {},
+  methods: {
+    handleDonateButton(e: MouseEvent) {
+      e.preventDefault();
+      router.navigateTo('/donate');
+    },
+  },
 
   /**
    * @description Función que retorna el template HTML para la página de inicio.
@@ -35,8 +41,11 @@ const Home = {
               emergencia y seguir trabajando en su prevención.
             </h3>
             <p>Súmate a la respuesta ante el Coronavirus</p>
-            <a href="/donate" class="boton-donar"
-              >Quiero Donar <i class="fas fa-chevron-down"></i
+            <a
+              href="/donate"
+              class="boton-donar"
+              @click="${Home.methods.handleDonateButton}"
+              >Quiero donar <i class="fas fa-chevron-down"></i
             ></a>
           </div>
 
