@@ -12,6 +12,7 @@ import Login from './views/pages/Login';
 import About from './views/pages/About';
 import Donate from './views/pages/Donate';
 import Search from './views/pages/Search';
+import Admin from './views/pages/Admin';
 
 // Objeto de Router
 export const router = new Router({
@@ -44,6 +45,11 @@ router.add('/about', () => {
 // Search
 router.add('/search', () => {
   Search.update();
+});
+
+// Admin
+router.add('/admin', () => {
+  Admin.update();
 });
 
 /**

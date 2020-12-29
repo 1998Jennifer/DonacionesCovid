@@ -55,7 +55,7 @@ export function handleMenuClick(e: MouseEvent, item: Element) {
         router.navigateTo('/search');
         break;
       case 'navAdmin':
-        // router.navigateTo('/admin');
+        router.navigateTo('/admin');
         break;
       case 'navAcerca':
         router.navigateTo('/about');
