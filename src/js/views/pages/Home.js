@@ -8,6 +8,7 @@
 import { html, render, TemplateResult } from 'lit-html';
 import { app } from '../..';
 import { router } from '../../router';
+import { activateMenuFromRoute } from '../../utils/handlers';
 
 const Home = {
   /**
@@ -20,9 +21,15 @@ const Home = {
    * y que cambiarán datos dentro del template.
    */
   methods: {
+    /**
+     * @description Función que se encarga de manejar el evento de clic en
+     * el botón de "Quiero donar".
+     * @param {MouseEvent} e Evento de mouse.
+     */
     handleDonateButton(e: MouseEvent) {
       e.preventDefault();
       router.navigateTo('/donate');
+      activateMenuFromRoute('donate');
     },
   },
 

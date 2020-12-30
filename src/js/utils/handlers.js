@@ -75,6 +75,9 @@ export function handleMenuClick(e: MouseEvent, item: Element) {
  * @param {string} route Ruta actual.
  */
 export function activateMenuFromRoute(route: string) {
+  // Reinicia los estilos de menú activos
+  removeActiveClassOnMenuItems();
+
   // Obtener todos los items del menú
   const navItems = document.querySelectorAll('.nav-link');
 
