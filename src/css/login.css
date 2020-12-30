@@ -134,7 +134,7 @@
   .form-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: columnhttp://localhost:1234;
     align-items: center;
     width: 50%;
   } */

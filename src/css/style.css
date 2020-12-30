@@ -26,7 +26,7 @@ body {
 
 .navbar {
   width: 6rem;
-  height: 127vh;
+  min-height: 100vh;
   background-color: #f8f4f4;
   transition: 200ms ease;
 }
@@ -38,7 +38,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
 }
 
 .navbarDisplayText {
@@ -142,6 +141,18 @@ body {
 .nav-link-activated {
   filter: grayscale(0%) opacity(1);
   background-color: var(--primary-color);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /* MAIN */

@@ -62,7 +62,7 @@ const Admin = {
               <span class="title-input">Desde</span>
               <div class="main-donate">
                 <i class="fas fa-calendar"></i>
-                <input type="date" class="input-calendar" />
+                <input type="date" class="input-calendar" required />
               </div>
             </label>
 
@@ -70,7 +70,7 @@ const Admin = {
               <span class="title-input">Hasta</span>
               <div class="main-donate">
                 <i class="fas fa-calendar"></i>
-                <input type="date" class="input-calendar" />
+                <input type="date" class="input-calendar" required />
               </div>
             </label>
 
@@ -93,7 +93,7 @@ const Admin = {
             </label>
             <label class="item-search-admin">
               <p><strong>Fecha:</strong></p>
-              <input type="date" value="2020-12-29" />
+              <input type="date" value="2020-12-29" required />
             </label>
 
             <div class="buttons-admin">
@@ -123,7 +123,7 @@ const Admin = {
             </label>
             <label class="item-search-admin">
               <p><strong>Fecha:</strong></p>
-              <input type="date" value="2020-12-29" />
+              <input type="date" value="2020-12-29" required />
             </label>
 
             <div class="buttons-admin">
@@ -153,7 +153,7 @@ const Admin = {
             </label>
             <label class="item-search-admin">
               <p><strong>Fecha:</strong></p>
-              <input type="date" value="2020-12-29" />
+              <input type="date" value="2020-12-29" required />
             </label>
 
             <div class="buttons-admin">
@@ -183,7 +183,7 @@ const Admin = {
             </label>
             <label class="item-search-admin">
               <p><strong>Fecha:</strong></p>
-              <input type="date" value="2020-12-29" />
+              <input type="date" value="2020-12-29" required />
             </label>
 
             <div class="buttons-admin">
@@ -216,7 +216,7 @@ const Admin = {
         <div class="grilla-item">
           <input type="text" value="Atún y arroz" />
         </div>
-        <div class="grilla-item"><input type="date" value="2020-12-28" /></div>
+        <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
         <div class="grilla-item">
           <div class="button-grid">
             <button class="accept button-admin">
@@ -239,7 +239,7 @@ const Admin = {
       <div class="grilla-item">
         <input type="text" value="Atún y arroz" />
       </div>
-      <div class="grilla-item"><input type="date" value="2020-12-28" /></div>
+      <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
       <div class="grilla-item">
         <div class="button-grid">
           <button class="accept button-admin">
@@ -262,7 +262,7 @@ const Admin = {
         <div class="grilla-item">
           <input type="text" value="Atún y arroz" />
         </div>
-        <div class="grilla-item"><input type="date" value="2020-12-28" /></div>
+        <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
         <div class="grilla-item">
           <div class="button-grid">
             <button class="accept button-admin">
@@ -285,7 +285,7 @@ const Admin = {
         <div class="grilla-item">
           <input type="text" value="Atún y arroz" />
         </div>
-        <div class="grilla-item"><input type="date" value="2020-12-28" /></div>
+        <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
         <div class="grilla-item">
           <div class="button-grid">
             <button class="accept button-admin">
