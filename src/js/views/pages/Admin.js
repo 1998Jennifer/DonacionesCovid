@@ -232,15 +232,15 @@ const Admin = {
         </div>
         <div class="grilla-item">
         <input type="text" value="Jennifer Intriago" />
-      </div>
-      <div class="grilla-item">
+        </div>
+        <div class="grilla-item">
         <input type="text" value="Jesus Moreira" />
-      </div>
-      <div class="grilla-item">
+        </div>
+        <div class="grilla-item">
         <input type="text" value="Atún y arroz" />
-      </div>
-      <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
-      <div class="grilla-item">
+        </div>
+        <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
+        <div class="grilla-item">
         <div class="button-grid">
           <button class="accept button-admin">
             <i class="fas fa-check"></i>
@@ -252,8 +252,8 @@ const Admin = {
             <i class="fas fa-edit"></i>
           </button>
         </div>
-      </div>
-      <div class="grilla-item">
+        </div>
+        <div class="grilla-item">
           <input type="text" value="Jennifer Intriago" />
         </div>
         <div class="grilla-item">

@@ -72,6 +72,20 @@ const Home = {
                 organizaciones de diferentes industrias y sectores.
               </p>
             </div>
+            <div class="main-section-card">
+              <div class="section-title-heart">
+                <i class="fas fa-viruses"></i>
+                <h2>¡Necesitamos donaciones!</h2>
+              </div>
+              <p>
+                Ayuda a la Salud pide donaciones para asistir a los valientes
+                trabajadores de primera línea. Actualmente, necesitamos apoyo
+                financiero, además de artículos enlatados, café instantáneo,
+                jabón de manos, desinfectantes y otros productos. Con las
+                donaciones, se armarán kits que se distribuirán en los
+                hospitales de Fairhill.
+              </p>
+            </div>
           </div>
         </section>
       </main>
