@@ -25,10 +25,10 @@ body {
 } */
 
 .navbar {
-  width: 6rem;
+  width: 5rem;
   min-height: 100vh;
   background-color: #f8f4f4;
-  transition: 200ms ease;
+  transition: 200ms ease-in-out;
 }
 
 .navbar-nav {
@@ -49,7 +49,7 @@ body {
 } */
 
 .navFull {
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 9999;
 }
