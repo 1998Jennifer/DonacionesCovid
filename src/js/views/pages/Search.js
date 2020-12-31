@@ -29,14 +29,14 @@ const Search = {
       <h1>¡Busca donaciones!</h1>
       <section class="container-form-donate">
         <form class="form-donate-search">
-          <label for="donador">
+          <label for="donador" title="Tu nombre">
             <span class="title-input">Donador</span>
             <div class="main-donate">
               <i class="fas fa-user"></i>
               <input type="text" id="usuario" placeholder="Ej. Jennifer" />
             </div>
           </label>
-          <label for="cedula">
+          <label for="cedula" title="tu cédula">
             <span class="title-input">Cédula del donador</span>
             <div class="main-donate">
               <i class="fas fa-id-card"></i>
@@ -49,7 +49,7 @@ const Search = {
               />
             </div>
           </label>
-          <label for="beneficiario">
+          <label for="beneficiario" title="Nombre del beneficiario">
             <span class="title-input">Beneficiario</span>
             <div class="main-donate">
               <i class="fas fa-user"></i>
@@ -57,7 +57,7 @@ const Search = {
             </div>
           </label>
 
-          <label for="fechaDesde">
+          <label for="fechaDesde" title="Fecha desde">
             <span class="title-input">Desde</span>
             <div class="main-donate">
               <i class="fas fa-calendar"></i>
@@ -65,7 +65,7 @@ const Search = {
             </div>
           </label>
 
-          <label for="fechaHasta">
+          <label for="fechaHasta" title="Fecha hasta">
             <span class="title-input">Hasta</span>
             <div class="main-donate">
               <i class="fas fa-calendar"></i>
@@ -73,7 +73,12 @@ const Search = {
             </div>
           </label>
 
-          <input type="submit" value="Consultar" class="button-send-donate" />
+          <input
+            type="submit"
+            value="Consultar"
+            class="button-send-donate"
+            title="Boton para consultar"
+          />
           <div class="container-card-search">
             <div class="item-search">
               <label class="item-search-data">

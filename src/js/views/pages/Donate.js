@@ -29,19 +29,19 @@ const Donate = {
       <h1>¿Qué deseas donar?</h1>
       <div class="prueba">
         <section class="container-flex">
-          <div class="item">
+          <div class="item" title="Dona comida">
             <div class="item-card">
               <i class="fas fa-hamburger"></i>
               <a>Comida</a>
             </div>
           </div>
-          <div class="item">
+          <div class="item" title="Dona un bien material">
             <div class="item-card">
               <i class="fas fa-couch"></i>
-              <a>Bien</a>
+              <a>Objeto</a>
             </div>
           </div>
-          <div class="item">
+          <div class="item" title="Dona dinero">
             <div class="item-card">
               <i class="fas fa-money-bill"></i>
               <a>Dinero</a>
@@ -51,7 +51,7 @@ const Donate = {
 
         <section class="container-form-donate">
           <form class="form-donate">
-            <label for="usuario">
+            <label for="usuario" title="Escribe tu nombre">
               <span class="title-input">Nombre del donador</span>
               <div class="main-donate">
                 <i class="fas fa-user"></i>
@@ -60,7 +60,7 @@ const Donate = {
               <span>Máximo 32 caracteres</span>
             </label>
 
-            <label for="cedulaDonador">
+            <label for="cedulaDonador" title="Escribe tu cedula">
               <span class="title-input">Cedula del donador</span>
               <div class="main-donate">
                 <i class="fas fa-id-card"></i>
@@ -68,7 +68,7 @@ const Donate = {
               </div>
               <span>Solo números</span>
             </label>
-            <label for="beneficiario">
+            <label for="beneficiario" title="Escribe nombre del beneficiario">
               <span class="title-input">Nombre del beneficiario</span>
               <div class="main-donate">
                 <i class="fas fa-user"></i>
@@ -77,7 +77,7 @@ const Donate = {
               <span>Máximo 32 caracteres</span>
             </label>
 
-            <label for="descripcion">
+            <label for="descripcion" title="Ejemplo: arroz">
               <span class="title-input">Descripción de la donación</span>
               <div class="main-donate">
                 <i class="fas fa-comment-alt"></i>
@@ -90,7 +90,7 @@ const Donate = {
               <span>Máximo 120 caracteres</span>
             </label>
 
-            <label for="monto">
+            <label for="monto" title="Ejemplo: $45.00">
               <span class="title-input">Monto de la donación</span>
               <div class="main-donate">
                 <i class="fas fa-dollar-sign"></i>
@@ -100,6 +100,7 @@ const Donate = {
             </label>
 
             <input
+              title="Boton enviar donación"
               type="submit"
               value="Enviar donación"
               class="button-send-donate"

@@ -49,6 +49,7 @@ const Home = {
             </h3>
             <p>Súmate a la respuesta ante el Coronavirus</p>
             <a
+              title="Boton quiero donar"
               href="/donate"
               class="boton-donar"
               @click="${Home.methods.handleDonateButton}"
@@ -56,7 +57,7 @@ const Home = {
             ></a>
           </div>
 
-          <div class="backgroundImg"></div>
+          <div class="backgroundImg" title="Ilustración"></div>
 
           <div class="main-section-container">
             <div class="main-section-card">

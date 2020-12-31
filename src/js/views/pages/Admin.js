@@ -30,14 +30,14 @@ const Admin = {
       <section class="container-section-admin">
         <div class="item-admin">
           <form class="form-donate-search">
-            <label for="donador">
+            <label for="donador" title="Nombre de donador">
               <span class="title-input">Donador</span>
               <div class="main-donate">
                 <i class="fas fa-user"></i>
                 <input type="text" id="usuario" placeholder="Ej. Jennifer" />
               </div>
             </label>
-            <label for="cedula">
+            <label for="cedula" title="Cédula">
               <span class="title-input">Cédula del donador</span>
               <div class="main-donate">
                 <i class="fas fa-id-card"></i>
@@ -50,7 +50,7 @@ const Admin = {
                 />
               </div>
             </label>
-            <label for="beneficiario">
+            <label for="beneficiario" title="Beneficiario">
               <span class="title-input">Beneficiario</span>
               <div class="main-donate">
                 <i class="fas fa-user"></i>
@@ -58,7 +58,7 @@ const Admin = {
               </div>
             </label>
 
-            <label for="fechaDesde">
+            <label for="fechaDesde" title="Fecha">
               <span class="title-input">Desde</span>
               <div class="main-donate">
                 <i class="fas fa-calendar"></i>
@@ -66,7 +66,7 @@ const Admin = {
               </div>
             </label>
 
-            <label for="fechaHasta">
+            <label for="fechaHasta" title="Fecha">
               <span class="title-input">Hasta</span>
               <div class="main-donate">
                 <i class="fas fa-calendar"></i>
@@ -74,7 +74,7 @@ const Admin = {
               </div>
             </label>
 
-            <input type="submit" value="Consultar" class="button-send-donate" />
+            <input type="submit" value="Consultar" class="button-send-donate" title="Boton para consultar"/>
           </form>
         </div>
         <div class="item-admin">
@@ -97,13 +97,13 @@ const Admin = {
             </label>
 
             <div class="buttons-admin">
-              <button class="accept button-admin">
+              <button class="accept button-admin" title="Boton aceptar">
                 <i class="fas fa-check"></i>
               </button>
-              <button class="deny button-admin">
+              <button class="deny button-admin" title="Boton denegar">
                 <i class="fas fa-times"></i>
               </button>
-              <button class="change button-admin">
+              <button class="change button-admin" title="Boton editar">
                 <i class="fas fa-edit"></i>
               </button>
             </div>
@@ -219,13 +219,13 @@ const Admin = {
         <div class="grilla-item"><input type="date" value="2020-12-28" required /></div>
         <div class="grilla-item">
           <div class="button-grid">
-            <button class="accept button-admin">
+            <button class="accept button-admin" title="Boton aceptar">
               <i class="fas fa-check"></i>
             </button>
-            <button class="deny button-admin">
+            <button class="deny button-admin" title="Boton denegar">
               <i class="fas fa-times"></i>
             </button>
-            <button class="change button-admin">
+            <button class="change button-admin" title="Boton modificar">
               <i class="fas fa-edit"></i>
             </button>
           </div>

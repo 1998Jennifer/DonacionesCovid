@@ -31,7 +31,7 @@ const LogIn = {
         <div class="form-container">
           <h1>¡Bienvenido!</h1>
           <form class="form-login">
-            <label for="Email">
+            <label for="Email" title="Email">
               <span>Email</span>
               <div class="main-input-container">
                 <i class="fas fa-envelope"></i>
@@ -42,7 +42,7 @@ const LogIn = {
                 />
               </div>
             </label>
-            <label for="password">
+            <label for="password" title="Contraseña">
               <span>Contraseña</span>
               <div class="main-input-container">
                 <i class="fas fa-lock"></i>
@@ -54,7 +54,7 @@ const LogIn = {
                 <i class="fas fa-eye"></i>
               </div>
             </label>
-            <input type="submit" value="Iniciar sesión" class="button-send" />
+            <input type="submit" value="Iniciar sesión" class="button-send" title="Boton iniciar sesión" />
           </form>
           <div class="line">
             <div></div>
@@ -66,7 +66,7 @@ const LogIn = {
         <div class="form-container">
           <h1>Regístrate</h1>
           <form class="form-login">
-            <label for="Email">
+            <label for="Email" title="Escribe tu email">
               <span>Email</span>
               <div class="main-input-container">
                 <i class="fas fa-envelope"></i>
@@ -77,7 +77,7 @@ const LogIn = {
                 />
               </div>
             </label>
-            <label for="usuario">
+            <label for="usuario" title="Escribe tu usuario">
               <span>Usuario</span>
               <div class="main-input-container user">
               <i class="fas fa-user"></i>
@@ -89,7 +89,7 @@ const LogIn = {
               </div>
               <span class="span-letter">Máximo 16 caracteres</span>
             </label>
-            <label for="password" class="label-pass">
+            <label for="password" class="label-pass" title="Escribe una contraseña">
               <span>Contraseña</span>
               <div class="main-input-container user">
                 <i class="fas fa-lock"></i>
@@ -102,7 +102,7 @@ const LogIn = {
                 </div>
                 <span class="span-letter">La contraseña debe contener al menos un caracter <br> especial, un número, una letra minúscula y mayúscula</span>
             </label>
-            <input type="submit" value="Registrarse" class="button-send-register"/>
+            <input type="submit" value="Registrarse" class="button-send-register" title="Boton para registrarse"/>
           </form>
           </div>
         </div>
