@@ -7,12 +7,12 @@
 import Router from 'vanilla-router';
 
 // Vistas
-import Home from './views/pages/Home';
-import Login from './views/pages/Login';
-import About from './views/pages/About';
-import Donate from './views/pages/Donate';
-import Search from './views/pages/Search';
-import Admin from './views/pages/Admin';
+import Home from './views/Home';
+import Login from './views/Login';
+import About from './views/About';
+import Donate from './views/Donate';
+import Search from './views/Search';
+import Admin from './views/Admin';
 import { activateMenuFromRoute } from './utils/handlers';
 
 // Objeto de Router

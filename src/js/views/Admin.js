@@ -5,8 +5,8 @@
  */
 
 import { html, render, TemplateResult } from 'lit-html';
-import { app } from '../..';
-import '../../../css/admin.css';
+import { app } from '..';
+import '../../css/admin.css';
 
 const Admin = {
   /**

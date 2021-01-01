@@ -6,9 +6,9 @@
 
 // Autocompletado y sintaxis de HTML para los template literals
 import { html, render, TemplateResult } from 'lit-html';
-import { app } from '../..';
-import { router } from '../../router';
-import { activateMenuFromRoute } from '../../utils/handlers';
+import { app } from '..';
+import { router } from '../router';
+import { activateMenuFromRoute } from '../utils/handlers';
 
 const Home = {
   /**

@@ -6,8 +6,8 @@
 
 // Autocompletado y sintaxis de HTML para los template literals
 import { html, render, TemplateResult } from 'lit-html';
-import { app } from '../..';
-import '../../../css/aboutUs.css';
+import { app } from '..';
+import '../../css/aboutUs.css';
 
 const About = {
   /**

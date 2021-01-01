@@ -6,8 +6,8 @@
 
 import axios, { AxiosResponse } from 'axios';
 import { html, render, directive, Part, TemplateResult } from 'lit-html';
-import { app } from '../..';
-import '../../../css/search.css';
+import { app } from '..';
+import '../../css/search.css';
 
 const Search = {
   /**
