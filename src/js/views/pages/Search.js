@@ -4,7 +4,8 @@
  * @author Jennifer Intriago <jennifergabriela52@gmail.com>
  */
 
-import { html, render, TemplateResult } from 'lit-html';
+import axios, { AxiosResponse } from 'axios';
+import { html, render, directive, Part, TemplateResult } from 'lit-html';
 import { app } from '../..';
 import '../../../css/search.css';
 
@@ -12,19 +13,74 @@ const Search = {
   /**
    * @description Datos de la página de búsqueda.
    */
-  data: {},
+  data: {
+    donations: [],
+  },
 
   /**
    * @description Métodos disponibles para la página de búsqueda,
    * y que cambiarán datos dentro del template.
    */
-  methods: {},
+  methods: {
+    // TODO: Documentar todos estos métodos y refactorizar, en caso
+    // de ser necesario
+    fetchDonations: new Promise<any>((resolve, reject) => {
+      axios
+        .get('https://5fed4901595e420017c2c68c.mockapi.io/api/v1/donations')
+        .then((results) => {
+          resolve(results);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    }),
+
+    asyncDirective: directive(
+      (promise: Promise<AxiosResponse<any>>) => (part: Part) => {
+        part.setValue('Waiting...');
+
+        Promise.resolve(promise).then((val) => {
+          part.setValue(
+            html`${val.data.map(
+              (item) => html`<div class="item-search">
+                <label class="item-search-data">
+                  <p><strong>Donador:</strong></p>
+                  <p>${item.donor}</p>
+                </label>
+                <label class="item-search-data">
+                  <p><strong>Beneficiario:</strong></p>
+                  <p>${item.recipient}</p>
+                </label>
+                ${item.type === 'material'
+                  ? html`<label class="item-search-data">
+                      <p><strong>Descripción:</strong></p>
+                      <p>${item.description}</p>
+                    </label>`
+                  : html`<label class="item-search-data">
+                      <p><strong>Monto:</strong></p>
+                      <p>$${item.ammount}</p>
+                    </label>`}
+
+                <label class="item-search-data">
+                  <p><strong>Fecha:</strong></p>
+                  <p>${item.createdAt}</p>
+                </label>
+              </div>`
+            )}`
+          );
+          part.commit();
+        });
+      }
+    ),
+  },
 
   /**
    * @description Función que retorna el template HTML para la página de búsqueda.
    * @returns {TemplateResult} Template de la página de búsqueda.
    */
   template: (): TemplateResult => {
+    const { methods } = Search;
+
     const view = html`
       <h1>¡Busca donaciones!</h1>
       <section class="container-form-donate">
@@ -94,68 +150,8 @@ const Search = {
                 <p>Atún y arroz</p>
               </label>
 
-              <label class="item-search-data">
-                <p><strong>Fecha:</strong></p>
-                <p>07/12/2020</p>
-              </label>
-            </div>
-            <div class="item-search">
-              <label class="item-search-data">
-                <p><strong>Donador:</strong></p>
-                <p>Jennifer Intriago</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Beneficiario:</strong></p>
-                <p>Jesús Moreira</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Descripción:</strong></p>
-                <p>Atún y arroz</p>
-              </label>
-
-              <label class="item-search-data">
-                <p><strong>Fecha:</strong></p>
-                <p>07/12/2020</p>
-              </label>
-            </div>
-            <div class="item-search">
-              <label class="item-search-data">
-                <p><strong>Donador:</strong></p>
-                <p>Jennifer Intriago</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Beneficiario:</strong></p>
-                <p>Jesús Moreira</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Descripción:</strong></p>
-                <p>Atún y arroz</p>
-              </label>
-
-              <label class="item-search-data">
-                <p><strong>Fecha:</strong></p>
-                <p>07/12/2020</p>
-              </label>
-            </div>
-            <div class="item-search">
-              <label class="item-search-data">
-                <p><strong>Donador:</strong></p>
-                <p>Jennifer Intriago</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Beneficiario:</strong></p>
-                <p>Jesús Moreira</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Monto:</strong></p>
-                <p>$45.00</p>
-              </label>
-
-              <label class="item-search-data">
-                <p><strong>Fecha:</strong></p>
-                <p>07/12/2020</p>
-              </label>
-            </div>
+          <div class="container-card-search">
+            ${methods.asyncDirective(methods.fetchDonations)}
           </div>
         </form>
       </section>
