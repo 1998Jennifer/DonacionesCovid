@@ -4,10 +4,11 @@
  * @author Jennifer Intriago <jennifergabriela52@gmail.com>
  */
 
-import axios, { AxiosResponse } from 'axios';
 import { html, render, directive, Part, TemplateResult } from 'lit-html';
 import { app } from '..';
 import '../../css/search.css';
+import { DonationAPI } from '../services/donationAPI';
+import { DonationResponse } from '../interfaces/DonationResponse';
 
 const Search = {
   /**
@@ -24,52 +25,46 @@ const Search = {
   methods: {
     // TODO: Documentar todos estos métodos y refactorizar, en caso
     // de ser necesario
-    fetchDonations: new Promise<any>((resolve, reject) => {
-      axios
-        .get('https://5fed4901595e420017c2c68c.mockapi.io/api/v1/donations')
-        .then((results) => {
-          resolve(results);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    }),
-
     asyncDirective: directive(
-      (promise: Promise<AxiosResponse<any>>) => (part: Part) => {
-        part.setValue('Waiting...');
+      (func: () => Promise<DonationResponse[]>) => async (part: Part) => {
+        part.setValue(html`<span>Cargando...</span>`);
 
-        Promise.resolve(promise).then((val) => {
-          part.setValue(
-            html`${val.data.map(
-              (item) => html`<div class="item-search">
-                <label class="item-search-data">
-                  <p><strong>Donador:</strong></p>
-                  <p>${item.donor}</p>
-                </label>
-                <label class="item-search-data">
-                  <p><strong>Beneficiario:</strong></p>
-                  <p>${item.recipient}</p>
-                </label>
-                ${item.type === 'material'
-                  ? html`<label class="item-search-data">
-                      <p><strong>Descripción:</strong></p>
-                      <p>${item.description}</p>
-                    </label>`
-                  : html`<label class="item-search-data">
-                      <p><strong>Monto:</strong></p>
-                      <p>$${item.ammount}</p>
-                    </label>`}
+        const data = await Promise.resolve(func());
 
-                <label class="item-search-data">
-                  <p><strong>Fecha:</strong></p>
-                  <p>${item.createdAt}</p>
-                </label>
-              </div>`
-            )}`
-          );
-          part.commit();
-        });
+        part.setValue(
+          html`${data.map(
+            (item) => html`<div class="item-search">
+              <label class="item-search-data">
+                <p><strong>Donador:</strong></p>
+                <p>${item.donor}</p>
+              </label>
+              <label class="item-search-data">
+                <p><strong>Beneficiario:</strong></p>
+                <p>${item.recipient}</p>
+              </label>
+              ${item.type === 'material'
+                ? html`<label class="item-search-data">
+                    <p><strong>Descripción:</strong></p>
+                    <p>${item.description}</p>
+                  </label>`
+                : html`<label class="item-search-data">
+                    <p><strong>Monto:</strong></p>
+                    <p>$${item.ammount}</p>
+                  </label>`}
+
+              <label class="item-search-data">
+                <p><strong>Fecha:</strong></p>
+                <p>
+                  ${new Date(item.createdAt).toLocaleString('es-ES', {
+                    dateStyle: 'medium',
+                  })}
+                </p>
+              </label>
+            </div>`
+          )}`
+        );
+
+        part.commit();
       }
     ),
   },
@@ -135,23 +130,9 @@ const Search = {
             class="button-send-donate"
             title="Boton para consultar"
           />
-          <div class="container-card-search">
-            <div class="item-search">
-              <label class="item-search-data">
-                <p><strong>Donador:</strong></p>
-                <p>Jennifer Intriago</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Beneficiario:</strong></p>
-                <p>Jesús Moreira</p>
-              </label>
-              <label class="item-search-data">
-                <p><strong>Descripción:</strong></p>
-                <p>Atún y arroz</p>
-              </label>
 
           <div class="container-card-search">
-            ${methods.asyncDirective(methods.fetchDonations)}
+            ${methods.asyncDirective(DonationAPI.get)}
           </div>
         </form>
       </section>
