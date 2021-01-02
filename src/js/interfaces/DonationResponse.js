@@ -2,6 +2,7 @@
 
 export interface DonationResponse {
   id: string;
+  idcard: string;
   donor: string;
   recipient: string;
   type: string;

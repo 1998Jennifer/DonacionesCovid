@@ -25,7 +25,7 @@ const Search = {
   methods: {
     // TODO: Documentar todos estos métodos y refactorizar, en caso
     // de ser necesario
-    asyncDirective: directive(
+    renderDonations: directive(
       (func: () => Promise<DonationResponse[]>) => async (part: Part) => {
         part.setValue(html`<span>Cargando...</span>`);
 
@@ -34,6 +34,10 @@ const Search = {
         part.setValue(
           html`${data.map(
             (item) => html`<div class="item-search">
+              <label class="item-search-data">
+                <p><strong>Cédula:</strong></p>
+                <p>${item.idcard}</p>
+              </label>
               <label class="item-search-data">
                 <p><strong>Donador:</strong></p>
                 <p>${item.donor}</p>
@@ -132,7 +136,7 @@ const Search = {
           />
 
           <div class="container-card-search">
-            ${methods.asyncDirective(DonationAPI.get)}
+            ${methods.renderDonations(DonationAPI.get)}
           </div>
         </form>
       </section>
