@@ -45,6 +45,8 @@ router.add('/about', () => {
 
 // Search
 router.add('/search', () => {
+  // Reiniciar los datos
+  Search.data.donations = [];
   Search.update();
 });
 
