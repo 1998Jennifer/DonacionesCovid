@@ -11,8 +11,11 @@
 .form-donate-search label {
   margin: 10px;
 }
+
 .form-donate-search span {
   font-size: 1.2rem;
+  color: #575757;
+  font-weight: 500;
 }
 
 .container-card-search {

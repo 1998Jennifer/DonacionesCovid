@@ -110,6 +110,17 @@ h1 {
   box-shadow: 0 1px 6px 0 #20212447;
   border-color: #dfe1e500;
 }
+.input-error {
+  border: 1px solid var(--error);
+}
+
+.error {
+  color: var(--error);
+}
+
+.input-error:hover {
+  border: 1px solid var(--error);
+}
 
 .button-send-donate {
   color: #ffffff;
@@ -153,6 +164,9 @@ h1 {
     justify-content: center;
     align-items: center;
   }
+  .input-error {
+    border: 1px solid red;
+  }
 
   .main-donate input {
     width: 500px;
@@ -166,6 +180,10 @@ h1 {
   .title-input {
     font-weight: bold;
     color: #575757;
+  }
+
+  .error {
+    color: var(--error);
   }
   .form-donate span {
     font-size: 1rem;
