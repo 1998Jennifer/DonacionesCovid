@@ -190,7 +190,7 @@ const Donate = {
      */
     validateAmmount: (money: string) => {
       // Se compara con una expresión regular, si la cumple no hay error
-      if (/^[0-9]{4}$/.test(money.trimStart())) {
+      if (/^[0-9]{1,4}$/.test(money.trimStart())) {
         Donate.data.formErrors.money = false;
       } else {
         Donate.data.formErrors.money = true;
