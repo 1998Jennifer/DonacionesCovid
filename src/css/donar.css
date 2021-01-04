@@ -44,10 +44,15 @@ h1 {
 /* mobile efect */
 .item-card:hover {
   color: #ffffff;
-  background-color: var(--primary-color);
+  background-color: #9488ee;
 }
-.item-card a::hover {
+.item-card:hover a {
   color: #ffffff;
+}
+
+.option-selected {
+  color: #ffffff;
+  background-color: #9488ee;
 }
 
 .item-card i {
@@ -61,6 +66,11 @@ h1 {
   font-weight: 500;
   line-height: 1;
 }
+
+.option-selected a {
+  color: #ffffff;
+}
+
 .form-donate {
   display: flex;
   flex-direction: column;
@@ -153,6 +163,15 @@ h1 {
   .item-card:hover {
     color: #ffffff;
     background-color: #9488ee;
+  }
+
+  .option-selected {
+    color: #ffffff;
+    background-color: #9488ee;
+  }
+
+  .option-selected a {
+    color: #ffffff;
   }
 
   .main-donate {

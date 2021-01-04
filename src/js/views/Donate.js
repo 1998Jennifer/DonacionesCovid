@@ -12,37 +12,237 @@ const Donate = {
   /**
    * @description Datos de la página de donación.
    */
-  data: {},
+  data: {
+    formValues: {
+      donor: '',
+      idcard: '',
+      recipient: '',
+      description: '',
+      money: '',
+    },
+    formErrors: {
+      donor: false,
+      idcard: false,
+      recipient: false,
+      description: false,
+      money: false,
+    },
+    optionSelected: 'food',
+  },
 
   /**
    * @description Métodos disponibles para la página de donación,
    * y que cambiarán datos dentro del template.
    */
-  methods: {},
+  methods: {
+    /**
+     * @description Función que se llama cada vez que una opción cambia,
+     * para guardar el estado de la nueva opción.
+     */
+    handleOptions() {
+      // Se revisa el id del div, y se selecciona la opción correspondiente
+      switch (this.id) {
+        case 'food':
+          Donate.data.optionSelected = 'food';
+          break;
+        case 'material':
+          Donate.data.optionSelected = 'material';
+          break;
+        case 'money':
+          Donate.data.optionSelected = 'money';
+          break;
+        default:
+          break;
+      }
+
+      // Actualiza en el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función que se encarga de escuchar los cambios en
+     * los inputs, por medio del evento keyUp. Y valida los datos
+     * correspondientes.
+     * @param {KeyboardEvent} e Evento de teclado.
+     */
+    handleChange: (e: KeyboardEvent) => {
+      // Obtiene el input
+      const element = e.target;
+
+      // Se confirma que sea un elemento input
+      if (element instanceof HTMLInputElement) {
+        // Por medio del id del input se obtiene el campo correspondiente,
+        // para validar su valor
+        switch (element.id) {
+          case 'donor':
+            // Se guarda el dato
+            Donate.data.formValues.donor = element.value;
+            Donate.methods.validateDonor(element.value);
+            break;
+          case 'idcard':
+            Donate.data.formValues.idcard = element.value;
+            Donate.methods.validateIdCard(element.value);
+            break;
+          case 'recipient':
+            Donate.data.formValues.recipient = element.value;
+            Donate.methods.validateRecipient(element.value);
+            break;
+          case 'description':
+            Donate.data.formValues.description = element.value;
+            Donate.methods.validateDescription(element.value);
+            break;
+          case 'money':
+            Donate.data.formValues.money = element.value;
+            Donate.methods.validateAmmount(element.value);
+            break;
+          default:
+            break;
+        }
+      }
+    },
+    /**
+     * @description Función para validar nombre del donador.
+     * @param {string} name Nombre del donador.
+     */
+    validateDonor: (name: string) => {
+      // Se compara con una expresión regular, si la cumple no hay error
+      if (/^[a-zA-ZÁáÉéÍíÓóÚúÜüÑñ\s.]{2,32}$/.test(name.trimStart())) {
+        Donate.data.formErrors.donor = false;
+      } else {
+        Donate.data.formErrors.donor = true;
+      }
+
+      // Actualiza los cambios en el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función para validar nombre del beneficiario.
+     * @param {string} name Nombre del beneficiario.
+     */
+    validateRecipient: (name: string) => {
+      // Se compara con una expresión regular, si la cumple no hay error
+      if (/^[a-zA-ZÁáÉéÍíÓóÚúÜüÑñ\s.]{2,32}$/.test(name.trimStart())) {
+        Donate.data.formErrors.recipient = false;
+      } else {
+        Donate.data.formErrors.recipient = true;
+      }
+
+      // Actualiza los cambios en el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función que valida la cédula.
+     * @param {string} idcard Cédula ingresada.
+     */
+    validateIdCard: (idcard: string) => {
+      // Se comprueba que sea dígitos y longitud 10
+      if (/^[0-9]{10}$/.test(idcard.trim())) {
+        let [suma, mul, chars] = [0, 2, idcard.length];
+
+        // eslint-disable-next-line no-loops/no-loops
+        for (let index = 0; index < chars - 1; index += 1) {
+          let num = Number(idcard[index]) * mul;
+          suma += num >= 10 ? num - 9 : num;
+          mul = mul === 2 ? 1 : 2;
+        }
+
+        suma = suma - (suma % 10) + 10 - suma;
+        suma = suma === 10 ? 0 : suma;
+
+        if (suma === Number(idcard[chars - 1])) {
+          Donate.data.formErrors.idcard = false;
+        } else {
+          Donate.data.formErrors.idcard = true;
+        }
+      } else {
+        Donate.data.formErrors.idcard = true;
+      }
+
+      // Actualizar en el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función para validar la descripción de la donación.
+     * @param {string} description Descripción de la donación.
+     */
+    validateDescription: (description: string) => {
+      // Se compara con una expresión regular, si la cumple no hay error
+      if (
+        /^[0-9a-zA-ZÁáÉéÍíÓóÚúÜüÑñ\s.,'":;!?_-]{2,120}$/.test(
+          description.trimStart()
+        )
+      ) {
+        Donate.data.formErrors.description = false;
+      } else {
+        Donate.data.formErrors.description = true;
+      }
+
+      // Actualiza los cambios en el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función para validar el monto de la donación.
+     * @param {string} money Monto de la donación.
+     */
+    validateAmmount: (money: string) => {
+      // Se compara con una expresión regular, si la cumple no hay error
+      if (/^[0-9]{4}$/.test(money.trimStart())) {
+        Donate.data.formErrors.money = false;
+      } else {
+        Donate.data.formErrors.money = true;
+      }
+
+      // Actualiza los cambios en el DOM
+      Donate.update();
+    },
+  },
 
   /**
    * @description Función que retorna el template HTML para la página de donación.
    * @returns {TemplateResult} Template de la página de donación.
    */
   template: (): TemplateResult => {
+    const { data, methods } = Donate;
     const view = html`
       <h1>¿Qué deseas donar?</h1>
       <div class="prueba">
         <section class="container-flex">
           <div class="item" title="Dona comida">
-            <div class="item-card">
+            <div
+              @click=${methods.handleOptions}
+              id="food"
+              class="item-card ${data.optionSelected === 'food'
+                ? 'option-selected'
+                : ''}"
+            >
               <i class="fas fa-hamburger"></i>
               <a>Comida</a>
             </div>
           </div>
           <div class="item" title="Dona un bien material">
-            <div class="item-card">
+            <div
+              @click=${methods.handleOptions}
+              id="material"
+              class="item-card ${data.optionSelected === 'material'
+                ? 'option-selected'
+                : ''}"
+            >
               <i class="fas fa-couch"></i>
               <a>Objeto</a>
             </div>
           </div>
           <div class="item" title="Dona dinero">
-            <div class="item-card">
+            <div
+              @click=${methods.handleOptions}
+              id="money"
+              class="item-card ${data.optionSelected === 'money'
+                ? 'option-selected'
+                : ''}"
+            >
               <i class="fas fa-money-bill"></i>
               <a>Dinero</a>
             </div>
@@ -51,53 +251,177 @@ const Donate = {
 
         <section class="container-form-donate">
           <form class="form-donate">
-            <label for="usuario" title="Escribe tu nombre">
-              <span class="title-input">Nombre del donador</span>
-              <div class="main-donate">
-                <i class="fas fa-user"></i>
-                <input type="text" id="usuario" placeholder="Ej. Jennifer" />
-              </div>
-              <span>Máximo 32 caracteres</span>
-            </label>
-
-            <label for="cedulaDonador" title="Escribe tu cedula">
-              <span class="title-input">Cedula del donador</span>
-              <div class="main-donate">
-                <i class="fas fa-id-card"></i>
-                <input type="number" id="usuario" placeholder="Escriba aquí" />
-              </div>
-              <span>Solo números</span>
-            </label>
-            <label for="beneficiario" title="Escribe nombre del beneficiario">
-              <span class="title-input">Nombre del beneficiario</span>
-              <div class="main-donate">
-                <i class="fas fa-user"></i>
-                <input type="text" id="usuario" placeholder="Ej. Jesús" />
-              </div>
-              <span>Máximo 32 caracteres</span>
-            </label>
-
-            <label for="descripcion" title="Ejemplo: arroz">
-              <span class="title-input">Descripción de la donación</span>
-              <div class="main-donate">
-                <i class="fas fa-comment-alt"></i>
+            <label for="donor" title="Escribe tu nombre">
+              <span
+                class="title-input"
+                style="${data.formErrors.donor ? 'color: var(--error);' : ''}"
+                >Nombre del donador</span
+              >
+              <div
+                class="main-donate ${data.formErrors.donor
+                  ? 'input-error'
+                  : ''}"
+              >
+                <i
+                  class="fas fa-user"
+                  style="${data.formErrors.donor ? 'color: var(--error);' : ''}"
+                ></i>
                 <input
                   type="text"
-                  id="usuario"
-                  placeholder="Ej. Atún, arroz, ropa, etc."
+                  id="donor"
+                  @keyup=${methods.handleChange}
+                  @change=${methods.handleChange}
+                  placeholder="Ej. Jennifer"
+                  required
                 />
               </div>
-              <span>Máximo 120 caracteres</span>
+              ${data.formErrors.donor
+                ? html`<span style="color: var(--error);"
+                    >Mínimo 2 y máximo 32 caracteres</span
+                  >`
+                : html`<span>Mínimo 2 y máximo 32 caracteres</span>`}
             </label>
 
-            <label for="monto" title="Ejemplo: $45.00">
-              <span class="title-input">Monto de la donación</span>
-              <div class="main-donate">
-                <i class="fas fa-dollar-sign"></i>
-                <input type="number" id="usuario" placeholder="Ej. 10" />
+            <label for="idcard" title="Escribe tu cedula">
+              <span
+                class="title-input"
+                style="${data.formErrors.idcard ? 'color: var(--error);' : ''}"
+                >Cedula del donador</span
+              >
+              <div
+                class="main-donate ${data.formErrors.idcard
+                  ? 'input-error'
+                  : ''}"
+              >
+                <i
+                  class="fas fa-id-card"
+                  style="${data.formErrors.idcard
+                    ? 'color: var(--error);'
+                    : ''}"
+                ></i>
+                <input
+                  type="number"
+                  @keyup=${methods.handleChange}
+                  @change=${methods.handleChange}
+                  id="idcard"
+                  placeholder="Escriba aquí"
+                  required
+                />
               </div>
-              <span>Solo números</span>
+              ${data.formErrors.idcard
+                ? html`<span style="color: var(--error);"
+                    >Coloque una cédula válida</span
+                  >`
+                : html`<span>Solo números</span>`}
             </label>
+            <label for="recipient" title="Escribe nombre del beneficiario">
+              <span
+                class="title-input"
+                style="${data.formErrors.recipient
+                  ? 'color: var(--error);'
+                  : ''}"
+                >Nombre del beneficiario</span
+              >
+              <div
+                class="main-donate ${data.formErrors.recipient
+                  ? 'input-error'
+                  : ''}"
+              >
+                <i
+                  class="fas fa-user"
+                  style="${data.formErrors.recipient
+                    ? 'color: var(--error);'
+                    : ''}"
+                ></i>
+                <input
+                  type="text"
+                  @keyup=${methods.handleChange}
+                  @change=${methods.handleChange}
+                  id="recipient"
+                  placeholder="Ej. Jesús"
+                  required
+                />
+              </div>
+              ${data.formErrors.recipient
+                ? html`<span style="color: var(--error);"
+                    >Mínimo 2 y máximo 32 caracteres</span
+                  >`
+                : html`<span>Mínimo 2 y máximo 32 caracteres</span>`}
+            </label>
+
+            ${data.optionSelected === 'money'
+              ? html`
+                  <label for="money" title="Ejemplo: $45.00">
+                    <span
+                      class="title-input"
+                      style="${data.formErrors.money
+                        ? 'color: var(--error);'
+                        : ''}"
+                      >Monto de la donación</span
+                    >
+                    <div
+                      class="main-donate ${data.formErrors.money
+                        ? 'input-error'
+                        : ''}"
+                    >
+                      <i
+                        class="fas fa-dollar-sign"
+                        style="${data.formErrors.money
+                          ? 'color: var(--error);'
+                          : ''}"
+                      ></i>
+                      <input
+                        type="number"
+                        @keyup=${methods.handleChange}
+                        @change=${methods.handleChange}
+                        id="money"
+                        placeholder="Ej. 10"
+                        required
+                      />
+                    </div>
+                    ${data.formErrors.money
+                      ? html`<span style="color: var(--error);"
+                          >Ingrese una cantidad válida</span
+                        >`
+                      : html`<span>Solo números</span>`}
+                  </label>
+                `
+              : html`
+                  <label for="description" title="Ejemplo: arroz">
+                    <span
+                      class="title-input"
+                      style="${data.formErrors.description
+                        ? 'color: var(--error);'
+                        : ''}"
+                      >Descripción de la donación</span
+                    >
+                    <div
+                      class="main-donate ${data.formErrors.description
+                        ? 'input-error'
+                        : ''}"
+                    >
+                      <i
+                        class="fas fa-comment-alt"
+                        style="${data.formErrors.description
+                          ? 'color: var(--error);'
+                          : ''}"
+                      ></i>
+                      <input
+                        type="text"
+                        @keyup=${methods.handleChange}
+                        @change=${methods.handleChange}
+                        id="description"
+                        placeholder="Ej. Atún, arroz, ropa, etc."
+                        required
+                      />
+                    </div>
+                    ${data.formErrors.description
+                      ? html`<span style="color: var(--error);"
+                          >Escriba una descripción válida</span
+                        >`
+                      : html`<span>Máximo 120 caracteres</span>`}
+                  </label>
+                `}
 
             <input
               title="Boton enviar donación"
