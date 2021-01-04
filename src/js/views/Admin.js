@@ -100,7 +100,7 @@ const Admin = {
                       <input
                         type="text"
                         value=${donation.donor}
-                        disabled=${!Admin.data.modify}
+                        ?disabled=${!Admin.data.modify}
                       />
                     </label>
                     <label class="item-search-admin">
@@ -110,7 +110,7 @@ const Admin = {
                       <input
                         type="text"
                         value=${donation.recipient}
-                        disabled=${!Admin.data.modify}
+                        ?disabled=${!Admin.data.modify}
                       />
                     </label>
                     ${donation.type === 'material'
@@ -121,7 +121,7 @@ const Admin = {
                           <input
                             type="text"
                             value=${donation.description}
-                            disabled=${!Admin.data.modify}
+                            ?disabled=${!Admin.data.modify}
                           />
                         </label>`
                       : html`<label class="item-search-admin">
@@ -131,7 +131,7 @@ const Admin = {
                           <input
                             type="text"
                             value="$${donation.ammount}"
-                            disabled=${!Admin.data.modify}
+                            ?disabled=${!Admin.data.modify}
                           />
                         </label>`}
 
@@ -144,7 +144,7 @@ const Admin = {
                         value=${Admin.methods.parseDate(
                           new Date(donation.createdAt)
                         )}
-                        disabled=${!Admin.data.modify}
+                        ?disabled=${!Admin.data.modify}
                         required
                       />
                     </label>
@@ -156,7 +156,11 @@ const Admin = {
                       <button class="deny button-admin" title="Boton denegar">
                         <i class="fas fa-times"></i>
                       </button>
-                      <button class="change button-admin" title="Boton editar">
+                      <button
+                        class="change button-admin"
+                        title="Boton editar"
+                        @click=${Admin.methods.handleEdit}
+                      >
                         <i class="fas fa-edit"></i>
                       </button>
                     </div>
@@ -176,14 +180,14 @@ const Admin = {
                     <input
                       type="text"
                       value=${donation.donor}
-                      disabled=${!Admin.data.modify}
+                      ?disabled=${!Admin.data.modify}
                     />
                   </div>
                   <div class="grilla-item">
                     <input
                       type="text"
                       value=${donation.recipient}
-                      disabled=${!Admin.data.modify}
+                      ?disabled=${!Admin.data.modify}
                     />
                   </div>
                   ${donation.type === 'material'
@@ -192,7 +196,7 @@ const Admin = {
                           <input
                             type="text"
                             value=${donation.description}
-                            disabled=${!Admin.data.modify}
+                            ?disabled=${!Admin.data.modify}
                           />
                         </div>
                       `
@@ -201,7 +205,7 @@ const Admin = {
                           <input
                             type="text"
                             value="$${donation.ammount}"
-                            disabled=${!Admin.data.modify}
+                            ?disabled=${!Admin.data.modify}
                           />
                         </div>
                       `}
@@ -212,7 +216,7 @@ const Admin = {
                       value=${Admin.methods.parseDate(
                         new Date(donation.createdAt)
                       )}
-                      disabled=${!Admin.data.modify}
+                      ?disabled=${!Admin.data.modify}
                       required
                     />
                   </div>
@@ -227,6 +231,7 @@ const Admin = {
                       <button
                         class="change button-admin"
                         title="Boton modificar"
+                        @click=${Admin.methods.handleEdit}
                       >
                         <i class="fas fa-edit"></i>
                       </button>
@@ -479,6 +484,18 @@ const Admin = {
       // Actualizar en el DOM
       Admin.update();
     },
+
+    /**
+     * @description Función que se ejecuta al hacer clic en el botón
+     * de editar.
+     */
+    handleEdit: () => {
+      // Cambiar estado a modificar
+      Admin.data.modify = !Admin.data.modify;
+
+      // Actualizar en el DOM
+      Admin.update();
+    },
   },
 
   /**
@@ -612,7 +629,9 @@ const Admin = {
               }
             </label>
 
-            <input type="submit" value="Consultar" class="button-send-donate" title="Boton para consultar"/>
+            <input type="submit" value="Consultar" class="button-send-donate" title="Boton para consultar" ?disabled=${
+              data.modify
+            } />
           </form>
         </div>
         ${
@@ -629,7 +648,7 @@ const Admin = {
                     <input
                       type="text"
                       value=${donation.donor}
-                      disabled=${!data.modify}
+                      ?disabled=${!data.modify}
                     />
                   </label>
                   <label class="item-search-admin">
@@ -639,7 +658,7 @@ const Admin = {
                     <input
                       type="text"
                       value=${donation.recipient}
-                      disabled=${!data.modify}
+                      ?disabled=${!data.modify}
                     />
                   </label>
                   ${donation.type === 'material'
@@ -650,7 +669,7 @@ const Admin = {
                         <input
                           type="text"
                           value=${donation.description}
-                          disabled=${!data.modify}
+                          ?disabled=${!data.modify}
                         />
                       </label>`
                     : html`<label class="item-search-admin">
@@ -660,7 +679,7 @@ const Admin = {
                         <input
                           type="text"
                           value="$${donation.ammount}"
-                          disabled=${!data.modify}
+                          ?disabled=${!data.modify}
                         />
                       </label>`}
 
@@ -670,10 +689,8 @@ const Admin = {
                     </p>
                     <input
                       type="date"
-                      value=${Admin.methods.parseDate(
-                        new Date(donation.createdAt)
-                      )}
-                      disabled=${!data.modify}
+                      value=${methods.parseDate(new Date(donation.createdAt))}
+                      ?disabled=${!data.modify}
                       required
                     />
                   </label>
@@ -685,7 +702,11 @@ const Admin = {
                     <button class="deny button-admin" title="Boton denegar">
                       <i class="fas fa-times"></i>
                     </button>
-                    <button class="change button-admin" title="Boton editar">
+                    <button
+                      class="change button-admin"
+                      title="Boton editar"
+                      @click=${methods.handleEdit}
+                    >
                       <i class="fas fa-edit"></i>
                     </button>
                   </div>
@@ -705,14 +726,14 @@ const Admin = {
                 <input
                   type="text"
                   value=${donation.donor}
-                  disabled=${!data.modify}
+                  ?disabled=${!data.modify}
                 />
               </div>
               <div class="grilla-item">
                 <input
                   type="text"
                   value=${donation.recipient}
-                  disabled=${!data.modify}
+                  ?disabled=${!data.modify}
                 />
               </div>
               ${donation.type === 'material'
@@ -721,7 +742,7 @@ const Admin = {
                       <input
                         type="text"
                         value=${donation.description}
-                        disabled=${!data.modify}
+                        ?disabled=${!data.modify}
                       />
                     </div>
                   `
@@ -730,7 +751,7 @@ const Admin = {
                       <input
                         type="text"
                         value="$${donation.ammount}"
-                        disabled=${!data.modify}
+                        ?disabled=${!data.modify}
                       />
                     </div>
                   `}
@@ -738,8 +759,8 @@ const Admin = {
               <div class="grilla-item">
                 <input
                   type="date"
-                  value=${Admin.methods.parseDate(new Date(donation.createdAt))}
-                  disabled=${!data.modify}
+                  value=${methods.parseDate(new Date(donation.createdAt))}
+                  ?disabled=${!data.modify}
                   required
                 />
               </div>
@@ -751,7 +772,11 @@ const Admin = {
                   <button class="deny button-admin" title="Boton denegar">
                     <i class="fas fa-times"></i>
                   </button>
-                  <button class="change button-admin" title="Boton modificar">
+                  <button
+                    class="change button-admin"
+                    title="Boton modificar"
+                    @click=${methods.handleEdit}
+                  >
                     <i class="fas fa-edit"></i>
                   </button>
                 </div>
