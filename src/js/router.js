@@ -52,6 +52,8 @@ router.add('/search', () => {
 
 // Admin
 router.add('/admin', () => {
+  // Reiniciar los datos
+  Admin.data.donations = [];
   Admin.update();
 });
 
