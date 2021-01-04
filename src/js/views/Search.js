@@ -489,6 +489,7 @@ const Search = {
                 @change=${methods.handleChange}
                 type="date"
                 class="input-calendar"
+                min="2000-01-01"
               />
             </div>
             ${data.formErrors.to
