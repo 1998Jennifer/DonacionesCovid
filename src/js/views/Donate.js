@@ -7,6 +7,8 @@
 import { html, render, TemplateResult } from 'lit-html';
 import { app } from '..';
 import '../../css/donar.css';
+import { DonationAPI } from '../services/donationAPI';
+import { DonationRequest } from '../interfaces/DonationRequest';
 
 const Donate = {
   /**
@@ -28,6 +30,7 @@ const Donate = {
       money: false,
     },
     optionSelected: 'food',
+    showModal: false,
   },
 
   /**
@@ -199,6 +202,55 @@ const Donate = {
       // Actualiza los cambios en el DOM
       Donate.update();
     },
+
+    /**
+     * @description Manejador del evento de submit del formulario. Crea la donación
+     * en el caso de no encontrar errores.
+     * @param {Event} event Evento de submit
+     */
+    handleSubmit: (event: Event) => {
+      // Previene recargar la página
+      event.preventDefault();
+
+      // Revisa si hay errores
+      let errors = false;
+      Object.keys(Donate.data.formErrors).forEach((key) => {
+        if (Donate.data.formErrors[key]) errors = true;
+      });
+
+      if (errors) return;
+
+      // Objeto de donación
+      const donation: DonationRequest = {
+        idcard: Donate.data.formValues.idcard,
+        donor: Donate.data.formValues.donor,
+        recipient: Donate.data.formValues.recipient,
+        type: Donate.data.optionSelected === 'money' ? 'money' : 'material',
+        description: Donate.data.formValues.description,
+        ammount: Donate.data.formValues.money,
+        createdAt: new Date().toISOString(),
+      };
+
+      // Se crea la donación
+      const donationRequest = DonationAPI.post(donation);
+
+      // Si la petición se llevó a cabo muestra el modal
+      if (donationRequest !== null) Donate.data.showModal = true;
+
+      // Actualiza el DOM
+      Donate.update();
+    },
+
+    /**
+     * @description Función que cierra el modal.
+     */
+    handleModalClick: () => {
+      // Cambiar estado de modal
+      Donate.data.showModal = false;
+
+      // Actualiza el DOM
+      Donate.update();
+    },
   },
 
   /**
@@ -208,8 +260,14 @@ const Donate = {
   template: (): TemplateResult => {
     const { data, methods } = Donate;
     const view = html`
-      <h1>¿Qué deseas donar?</h1>
-      <div class="prueba">
+      <div class="modal ${!data.showModal ? 'hidden' : ''}">
+        <h2>La donación se realizó correctamente</h2>
+        <button @click=${methods.handleModalClick} class="modal-button">
+          Entendido
+        </button>
+      </div>
+      <h1 class="${data.showModal ? 'blurred' : ''}">¿Qué deseas donar?</h1>
+      <div class="prueba ${data.showModal ? 'blurred' : ''}">
         <section class="container-flex">
           <div class="item" title="Dona comida">
             <div
@@ -250,7 +308,7 @@ const Donate = {
         </section>
 
         <section class="container-form-donate">
-          <form class="form-donate">
+          <form @submit=${methods.handleSubmit} class="form-donate">
             <label for="donor" title="Escribe tu nombre">
               <span
                 class="title-input"

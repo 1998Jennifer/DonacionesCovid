@@ -7,6 +7,7 @@
 
 import axios from 'axios';
 import { DonationResponse } from '../interfaces/DonationResponse';
+import { DonationRequest } from '../interfaces/DonationRequest';
 import { dummyDonations } from '../data/dummyDonations';
 
 // Endpoint de MockAPI
@@ -36,6 +37,25 @@ export class DonationAPI {
     } catch {
       // En caso de error, devuelve datos de prueba
       return dummyDonations;
+    }
+  }
+
+  /**
+   * @description Función que crea una nueva donación, llamando a la API;
+   * en el caso de que no esté disponible, se mandan datos de prueba.
+   * @param {DonationRequest} donation Objeto con los datos de donación.
+   * @returns {Promise<any>} Resultado de la petición.
+   */
+  static async post(donation: DonationRequest): Promise<any> {
+    try {
+      // Crear el nuevo recurso
+      const newDonation = await axios.post(donationEndpoint, donation);
+
+      // Devuelve el resultado
+      return newDonation;
+    } catch {
+      // En caso de error, manda un nulo
+      return null;
     }
   }
 }
